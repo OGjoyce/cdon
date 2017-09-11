@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+  
+
+  <script>
+  $(document).ready(function() {
+    $("#datepicker").datepicker();
+  });
+  </script>
+
+<body>
+
+<form name="form_vuelo" method="get" onsubmit="verificar();">
+  From<br>
+  <select id="Aeropuertos_FROM">
+  <option value="SEA" selected>SEA</option>
+  <option value="SXF">SXF</option>
+  <option value="GUA">GUA</option>
+</select>
+  </br>To<br>
+  <select id="Aeropuertos_TO">
+  <option value="SEA">SEA</option>
+  <option value="SXF">SXF</option>
+  <option value="GUA" selected>GUA</option>
+</select>
+</br>Date
+    <br>
+    <input id="datepicker" ><br><br>
+  <input type="submit" value="Continuar"  >
+  <input type="reset" value="Reset">
+</form>
+<script>
+function verificar(){
+  var date = document.getElementById("datepicker").value;
+
+var data0 = $("#Aeropuertos_FROM :selected").text();
+var data1 = $("#Aeropuertos_TO :selected").text();
+
+
+        if(data0 == data1){
+          console.log(data0);
+          console.log(data1);
+          alert("Ingrese destinos diferentes");
+          location.reload();
+
+        } else {
+         // window.location = "/consultar_vuelos.php"
+         alert("go now");
+        }
+}
+</script>
+</body>
+</html>
