@@ -12,45 +12,34 @@ $host="127.0.0.1";
     $pass="password";
     $dbname="Cdon_DB";
 
-    $origen = $_GET['origen'];  
-    $destino = $_GET['destino'];
-    $fecha = $_GET['date'];
-
-
     $cadenaConexion = "host=$host port=$port dbname=$dbname user=$user password=$pass";
 
     $conexion = pg_connect($cadenaConexion) or die("Error en la Conexión: ".pg_last_error());
-echo "<h3>Conexion Exitosa PHP - PostgreSQL</h3><hr><br>";
 
-$query = "SELECT numero, destino, origen FROM Vuelos";
+echo "<h3>Conexion Exitosa PHP - PostgreSQL</h3><hr><br>";
+$query = "SELECT * FROM Persona";
 
 $resultado = pg_query($conexion, $query) or die("Error en la Consulta!");
 
-$numReg = pg_num_rows($resultado);
+echo "<table>\n";   
+while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+        echo "\t\t<td>$col_value</td>\n";
+    }
+    echo "\t</tr>\n";
+}
+echo "</table>\n";
 
-if($numReg>0){
-echo "<table border='1' align='center'>
-<tr bgcolor='skyblue'>
-<th>nombre</th>
-<th>destino</th>
-<th>origen</th></tr>";
-while ($fila=pg_fetch_array($resultado)) {
-echo "<tr><td>".$fila['nombre']."</td>";
-echo "<td>".$fila['origen']."</td>";
-echo "<td>".$fila['destino']."</td></tr>";
-}
-                echo "</table>";
-}else{
-                echo "No hay Registros";
-}
+
+pg_free_result($result);
+
+
+pg_close($dbconn);
+
 
 pg_close($conexion);
-
 echo 'el registro fue eliminado exitosamente<br>';
-
-
-
-
 ?>
 
      <center>
