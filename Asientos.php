@@ -6,7 +6,7 @@
 </head>
 
   <body>
-    <h1>PENE1</h1>
+    <h1>Lista de Asientos</h1>
 <?php
 for ($i = 0; $i < 20; $i++){
     echo "<button type='button' onclick = 'buttonFoo(0," . $i . ")'>A</button>" . "\n";
