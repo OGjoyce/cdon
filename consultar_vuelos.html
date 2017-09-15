@@ -1,0 +1,29 @@
+<html>
+  <head>
+     <title>
+       Listado desde XML
+     </title>
+  </head>
+  <body>
+
+
+<?php
+
+$origen = $_GET['origen'];
+$destino = $_GET['destino'];
+$fecha = $_GET['fecha'];
+$xml = simplexml_load_file("http://localhost/listado_xml.php?origen=".$origen."&destino=".$destino."&fecha=".$fecha);
+
+foreach ($xml->children() as $persona)
+  {  echo $persona->destino;
+     echo $persona->origen;
+     echo $persona->fecha;
+	 echo "<br>";
+  }
+  
+  
+?>
+
+
+  </body>
+</html>
