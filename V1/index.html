@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>CDONG</title>
-
+      <!-- <link rel="icon" href="misc/img/icono.png"> -->
       <link rel="stylesheet" href="misc/bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" href="misc/bootstrap/css/font-awesome.min.css">
       <link rel="stylesheet" href="misc/bootstrap/css/main.css">
@@ -23,17 +23,17 @@
           <li><a href="#">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       </div>
     </nav>
 <form method="get" action="Vuelos.php">
-  <div class="col-md-4">
+  <div class="col-md-12">
     <div class="form-group">
       <span class="glyphicon glyphicon-map-marker"></span>
       <label for="formFrom">FROM:</label>
-      <select class="form-control" name="from" id = "formFrom" onchange="disable1();"> </br>
-        <option selected>Ingrese pais origen</option>
+      <select class="form-control" name="origen" id = "formFrom" onchange="disable1();" required> </br>
+        <option value="">Ingrese pais origen</option>
         <option value="SEA">Seattle, USA (SEA) </option>
         <option value="SXF">Schönefeld, Germany (SXF) </option>
         <option value="GUA">Guatemala, Guatemala (GUA) </option>
@@ -42,8 +42,8 @@
     <div class="form-group">
       <span class="glyphicon glyphicon-map-marker"></span>
       <label for="formTO">To:</label>
-      <select class="form-control" name="to" id = "formTO" onchange="disable2();"> </br>
-        <option selected>Ingrese pais destino</option>
+      <select class="form-control" name="destino" id = "formTO" onchange="disable2();" required> </br>
+        <option value="">Ingrese pais destino</option>
         <option value="SEA">Seattle, USA (SEA) </option>
         <option value="SXF">Schönefeld, Germany (SXF) </option>
         <option value="GUA">Guatemala, Guatemala (GUA) </option>
@@ -52,8 +52,8 @@
     <div class="form-group">
       <span class="glyphicon glyphicon-calendar"></span>
       <label for="date">Fecha:</label>
-        <div class='input-group date'  >
-            <input type='date' class="form-control" id="datepicker" name ="date"/>
+        <div class='input-group date'>
+            <input type='date' class="form-control" id="datepicker" name="fecha" required/>
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
             </span>
