@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>CDONG</title>
+  <title>CDON</title>
 
     <link rel="stylesheet" href="misc/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="misc/bootstrap/css/font-awesome.min.css">
@@ -13,12 +13,12 @@
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">CDONG TRAVEL</a>
+        <a class="navbar-brand" href="index.html">CDON TRAVEL</a>
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="#">Paquetes</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="paquetes.html">Paquetes</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
