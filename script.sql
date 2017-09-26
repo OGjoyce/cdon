@@ -32,8 +32,7 @@ create table Usuarios(
   id_usuario serial primary key,
   Username text unique,
   correo text unique,
-  password text,
-  active boolean
+  password text
 );
 
 create table Reservaciones(
@@ -49,3 +48,5 @@ create table Reservaciones(
 insert into Aerolineas values('IDC','INDRES', 'LOCALHOST');
 insert into Aerolineas values('GAL','GUATE', 'LOCALHOST');
 insert into Aerolineas values('LMA','LAMDA', 'LOCALHOST');
+
+insert into usuarios values('1','agenciaadmin', 'dongju.baek@galileo.edu', '123');
