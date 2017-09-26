@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Mobiles -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--misc -->
+<script type="text/javascript" src="../misc/bootstrap/js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../index.html">CDON TRAVEL</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="../index.html">Home</a></li>
+        <li class="active"><a href="paquetes.html">Paquetes</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="../Login/login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</head>
+<body>
+<div class="jumbotron text-center">
+  <h1>Paquetes</h1>
+  <p>Con Cdon travel puedes elegir paquetes, elige tu paquete.</p>
+</div>
+<!-- familiar -->
+<div class="container">
+ <div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+        <form method='post' action='mostrar_paquetes.php'>
+        <img src="../misc/img/paquete-familiar.jpg" alt="familiar" width="300" height="250">
+        <div class="caption">
+          <p>Disfruta de nuestros paquetes familiares con tu familia a los distintos destinos, libera tu sueno.</p>
+              <input type="hidden" name="packet" value="0">
+        <button type="submit" class="btn btn-info">Ver paquetes</button>
+        </div>
+        </form>
+        </div>
+
+    </div>
+
+  <div class="col-md-4">
+    <div class="thumbnail">
+        <form method='post' action='mostrar_paquetes.php'>
+        <img src="../misc/img/paquete-lunademiel.jpg" alt="miel" width="300" height="250">
+        <div class="caption">
+          <p>Viajes inspiradores, enamorate de tu pareja cada vez mas con nuestros paquetes</p><br><br>
+          <input type="hidden" name="packet" value="1">
+        <button type="submit" class="btn btn-info">Ver paquetes</button>
+        </div>
+        </form>
+
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="thumbnail">
+         <form method='post' action='mostrar_paquetes.php'>
+        <img src="../misc/img/paquete-personal.jpg" alt="personal" width="300" height="250">
+        <div class="caption">
+          <p>Conoce el mundo tu solo con tan solo un clic.</p>
+             <input type="hidden" name="packet" value="2">
+        <button type="submit" class="btn btn-info">Ver paquetes</button>
+        </div>
+        </form>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<
+
+</body>
+
+</html>
