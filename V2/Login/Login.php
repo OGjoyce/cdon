@@ -27,13 +27,14 @@ session_start();
       while ($row=pg_fetch_assoc($query)){
         if ($row['username'] == $_SESSION["usuario"]) {
           pg_close($dbconn);
+          echo "entro aqui";
             header('Location: user.php');
         }
       }
       //header('Location: Login.php');
     }
     else{
-      echo "No se pudo";
+      echo "Su usuario es incorrecto";
       //header('Location: Login.php');
     }
 

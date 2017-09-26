@@ -36,9 +36,9 @@
   session_start();
  // $data = $_GET['data'];
  //$_SESSION['data']= $data;
-$usr = $_GET['Username'];
-$email = $_GET['Email'];
-$password = $_GET['password'];
+$usr = $_POST['Username'];
+$email = $_POST['Email'];
+$password = $_POST['password'];
 $_SESSION['nombre_de_usuario'] = $usr;
 
 $url = 'http://imart-gt.com/script_reserva/?aerolinea='.$_SESSION['aerolinea'].'&vuelo='.$_SESSION['numero'].'&fecha='.$_SESSION['date'] . '&asiento='. $_SESSION['data'].'&nombre=' .$_SESSION['nombre_de_usuario'];
@@ -71,6 +71,19 @@ else {
   $query = "INSERT INTO usuarios (id_usuario, username, correo, password) VALUES (DEFAULT, '$usr', '$email', md5('$password'))";
   $resultado = pg_query($conexion, $query);
   if ($resultado){
+    // 8 = NO-HOTEL
+    $q1 = "Select id_usuario from usuarios where username = '". $_SESSION['nombre_de_usuario']."'" ;
+    $pp =pg_query($conexion, $q1);
+    $row=pg_fetch_assoc($pp);
+    $idpp = $row['id_usuario'];
+    $q2 ="Insert into paquetes values (DEFAULT, 'VUELO', 'Viaje de ". $_SESSION['from'] ." hacia ". $_SESSION['to'] ." con fecha ".$_SESSION['date']."', '8', '".$_SESSION['aerolinea']."', '0', '".$_SESSION['precio']."')  ";
+    $pp =pg_query($conexion, $q2);
+    $q1 = "Select max(id_paquete) from paquetes";
+    $pp =pg_query($conexion, $q1);
+    $row=pg_fetch_assoc($pp);
+    $idpp1 = $row['max'];
+    $q2 = "Insert into reservaciones values ('$idpp','$idpp1',DEFAULT)";
+    pg_query($conexion, $q2);
     echo "<div class='alert alert-info'>
           Usted ha reservado su boleto con exito.
           </div>";
@@ -80,6 +93,7 @@ else {
   echo "<div class='alert alert-info'>
   <strong>Su documento imprimible</strong> esta listo,<a href='imprimible.php' class='alert-link'>continuar</a>
   </div>";
+
   }
   else{
     echo "<div class='alert alert-danger'>

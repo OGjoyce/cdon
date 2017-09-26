@@ -33,6 +33,7 @@
     $aerolinea = $_GET['aerolinea'];
     $numero_boleto = $_GET['numero'];
     $_SESSION['numero'] = $numero_boleto;
+      $_SESSION['precio']=  $_GET['precio'];
     $_SESSION['aerolinea'] = $aerolinea;
     // if($_SESSION['aerolinea'] == 'IDC'){
     //   $url = 'http://imart-gt.com/script_lista_asientos/?aerolinea='.$_SESSION['aerolinea'].'&vuelo='.$_SESSION['numero'].'&fecha='.$_SESSION['date'];

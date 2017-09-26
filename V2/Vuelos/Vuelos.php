@@ -103,7 +103,7 @@ foreach ($all_urls as $url) {
                         echo "<td>".$vuelo->origen."</td>";
                         echo "<td>".$vuelo->destino."</td>";
                         echo "<td>".$vuelo->precio."</td>";
-                        echo "<td><form action='Asientos.php' method='get'> <button type='button' class='btn btn-default btn-sm' name='aerolinea' value=".$xml->aerolinea." onclick='foofi(\"".$xml->aerolinea."\",\"".$vuelo->numero."\")'>
+                        echo "<td><form action='Asientos.php' method='get'> <button type='button' class='btn btn-default btn-sm' name='aerolinea' value=".$xml->aerolinea." onclick='foofi(\"".$xml->aerolinea."\",\"".$vuelo->numero."\", " . $vuelo->precio .  ")'>
           <span class='glyphicon glyphicon-usd'></span> Buy
         </button></form></td></tr>";
 
@@ -121,8 +121,8 @@ foreach ($all_urls as $url) {
 
 ?>
 <script>
-function foofi(a, b){
-  window.location.href = "Asientos.php?aerolinea=" + a + "&numero="+b;
+function foofi(a, b, c){
+  window.location.href = "Asientos.php?aerolinea=" + a + "&numero="+b + "&precio="+c;
 }
 </script>
 

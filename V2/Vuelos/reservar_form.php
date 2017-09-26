@@ -41,7 +41,7 @@
             echo "<div class='container'>
      <h3>Registration</h3>
     <hr>
-    <form method='get' action='reservar.php'>
+    <form method='post' action='reservar.php'>
     <div class='row'>
         <div class='col-lg-6'>
             <div class='form-group'>

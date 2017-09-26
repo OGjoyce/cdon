@@ -45,6 +45,7 @@
 </head>
 <body>
 <?php
+   session_start();
 $host="localhost";
     $user="agenciaadmin";
     $pass="123";
@@ -63,6 +64,7 @@ $resultado = pg_query($conexion, $query) or die("Error en la Consulta SQL");
 
 $numReg = pg_num_rows($resultado);
 
+
 if($numReg>0){
 echo "<table class='table table-striped'>
 <th>Descripcion</th>
@@ -71,11 +73,12 @@ echo "<table class='table table-striped'>
 <th>Precio</th>
 <th>Informacion</th></tr>";
 while ($fila=pg_fetch_array($resultado)) {
+$id_paquete = $fila['id_paquete'];
 echo "<tr><td>".$fila['descripcion']."</td>";
 echo "<td>".$fila['id_aerolinea']."</td>";
 echo "<td>".$fila['dias']."</td>";
 echo "<td>".$fila['precio']."</td>";
-echo "<td><a href='#'>Comprar</a></td></tr>";
+echo "<td><form method='post'action='paquete-form.php'><button name='paquete' value='$id_paquete' type ='submit'>Comprar</button> </form></td></tr>";
 }
                 echo "</table>";
 }else{
@@ -98,11 +101,13 @@ echo "<table class='table table-bordered'>
 <th>precio</th>
 <th>Informacion</th></tr>";
 while ($fila=pg_fetch_array($resultado)) {
-echo "<tr><td>".$fila['descripcion']."</td>";
-echo "<td>".$fila['id_aerolinea']."</td>";
-echo "<td>".$fila['dias']."</td>";
-echo "<td>".$fila['precio']."</td>";
-echo "<td><a href='#'>Comprar</a></td></tr>";
+  $id_paquete = $fila['id_paquete'];
+  echo "<tr><td>".$fila['descripcion']."</td>";
+  echo "<td>".$fila['id_aerolinea']."</td>";
+  echo "<td>".$fila['dias']."</td>";
+  echo "<td>".$fila['precio']."</td>";
+  echo "<td><form method='post'action='paquete-form.php'><button name='paquete' value='$id_paquete' type ='submit'>Comprar</button> </form></td></tr>";
+
 }
                 echo "</table>";
 }else{
@@ -125,11 +130,13 @@ echo "<table class='table table-bordered'>
 <th>precio</th>
 <th>Informacion</th></tr>";
 while ($fila=pg_fetch_array($resultado)) {
-echo "<tr><td>".$fila['descripcion']."</td>";
-echo "<td>".$fila['id_aerolinea']."</td>";
-echo "<td>".$fila['dias']."</td>";
-echo "<td>".$fila['precio']."</td>";
-echo "<td><a href='#'>Comprar</a></td></tr>";
+  $id_paquete = $fila['id_paquete'];
+  echo "<tr><td>".$fila['descripcion']."</td>";
+  echo "<td>".$fila['id_aerolinea']."</td>";
+  echo "<td>".$fila['dias']."</td>";
+  echo "<td>".$fila['precio']."</td>";
+  echo "<td><form method='post'action='paquete-form.php'><button name='paquete' value='$id_paquete' type ='submit'>Comprar</button> </form></td></tr>";
+
 }
                 echo "</table>";
 }else{

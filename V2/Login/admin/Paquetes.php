@@ -62,7 +62,7 @@
     echo "<th>". $row[6] . "</th>";
 
 
-         echo "<th> <form action='Paquetes.php' method='post'><button type='submit' class='btn-danger' name = 'borrar' value = '". $row['p.id_paquete'] . "' >Borrar </button> </form> </th>";
+         echo "<th> <form action='Paquetes.php' method='post'><button type='submit' class='btn-danger' name = 'borrar' value = '". $row[0] . "' >Borrar </button> </form> </th>";
      ?>
           </tr>
   <?php
@@ -77,7 +77,7 @@ echo $x;
 //pg_close($dbconn);
 //$dbconn = pg_connect("host=localhost dbname=agencia user=agenciaadmin password=123");
 if ($x != ""){
-  $q = "delete from hotels where codigo = '" . $x."'";
+  $q = "delete from paquetes where id_paquete = '" . $x."'";
   if (pg_query($dbconn, $q)){
     echo '<div class="alert alert-success">
     <strong>Success!</strong> Borrado exitosamente.
