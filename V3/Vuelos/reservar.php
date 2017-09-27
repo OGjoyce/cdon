@@ -41,13 +41,14 @@ $email = $_POST['Email'];
 $password = $_POST['password'];
 $_SESSION['nombre_de_usuario'] = $usr;
 
-$link = 'http://'.   $_SESSION['ip']. '/script_lista_vuelos' .$_SESSION['extension']. '?aerolinea=' .$_SESSION['aerolinea'].'&vuelo='.$_SESSION['numero'] .'&fecha='. $_SESSION['date']. '&asiento='. $_SESSION['data'].'&nombre=' .$_SESSION['nombre_de_usuario'];
-
+$link = 'http://'.   $_SESSION['ip']. '/script_reserva' .$_SESSION['extension']. '?aerolinea=' .$_SESSION['aerolinea'].'&vuelo='.$_SESSION['numero'] .'&fecha='. $_SESSION['date']. '&asiento='. $_SESSION['data'].'&nombre=' .$_SESSION['nombre_de_usuario'];
+echo $link;
 $xml = simplexml_load_file($link);
 
 
 
 $asiento = $xml->numero;
+$_SESSION['ticket'] = $asiento;
 // echo $url. "\n";
 // echo $_SESSION['aerolinea'] . "\n";
 // echo $_SESSION['numero']. "\n";
@@ -80,7 +81,7 @@ else {
     $pp =pg_query($conexion, $q1);
     $row=pg_fetch_assoc($pp);
     $idpp = $row['id_usuario'];
-    $q2 ="Insert into paquetes values (DEFAULT, 'VUELO', 'Viaje de ". $_SESSION['from'] ." hacia ". $_SESSION['to'] ." con fecha ".$_SESSION['date']."', '8', '".$_SESSION['aerolinea']."', '0', '".$_SESSION['precio']."')  ";
+    $q2 ="Insert into paquetes values (DEFAULT, 'VUELO', 'Viaje de ". $_SESSION['from'] ." hacia ". $_SESSION['to'] ." con fecha ".$_SESSION['date']." con numero de ticket "  .  $_SESSION['ticket']   .".', '8', '".$_SESSION['aerolinea']."', '0', '".$_SESSION['precio']."')  ";
     $pp =pg_query($conexion, $q2);
     $q1 = "Select max(id_paquete) from paquetes";
     $pp =pg_query($conexion, $q1);

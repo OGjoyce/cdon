@@ -48,45 +48,67 @@
     $all_urls = array();
     $row=pg_fetch_assoc($resultado);
     $_SESSION['ip'] = $row['ip'];
-    $_SESSION['extension'] = $row['extension']
-    $link = 'http://'.   $_SESSION['ip']. '/script_lista_vuelos' .$_SESSION['extension']. '?aerolinea=' .$_SESSION['aerolinea'].'&vuelo='.$_SESSION['numero'] .'&fecha='. $_SESSION['date'];
+    $_SESSION['extension'] = $row['extension'];
+    $link = 'http://'.   $_SESSION['ip']. '/script_lista_asientos' .$_SESSION['extension']. '?aerolinea=' .$_SESSION['aerolinea'].'&vuelo='.$_SESSION['numero'] .'&fecha='. $_SESSION['date'];
 
     $xml = simplexml_load_file($link);
     $arr = array();
     foreach($xml->asiento as $asiento) {
-      $arr[]= $asiento->numero;
+      array_push($arr,$asiento->numero);
     }
-    $disable = 'active';
+    $disable = 'disabled';
     $j = 0;
-    for ($cont = 1; $cont <=80; $cont++){
+    for ($cont = 1; $cont < 81; $cont++){
       foreach($arr as $a) {
         if ($cont == $a){
-          $disable = 'disabled';
+          $disable = 'active';
         }
       }
-      if ($j == 0){
-        echo "<button type='button' class='btn btn-primary ". $disable . "' onclick = 'buttonFoo(" . $cont . ")'>A</button>" . "\n";
-        $j++;
+      if ($disable == 'active'){
+        if ($j == 0){
+          echo "<button type='button' class='btn btn-primary $disable' onclick = 'buttonFoo(" . $cont . ")'>A</button>" . "\n";
+          $j++;
+        }
+        elseif ($j == 1) {
+          echo "<button type='button' class='btn btn-primary $disable' onclick = 'buttonFoo(" . $cont . ")'>B</button>" . "\n";
+          $j++;
+        }
+        elseif ($j == 2) {
+          echo "<button type='button' class='btn btn-primary $disable' onclick = 'buttonFoo(" . $cont . ")'>C</button>" . "\n";
+          $j++;
+        }
+        elseif ($j == 3) {
+          echo "<button type='button' class='btn btn-primary $disable' onclick = 'buttonFoo(" . $cont . ")'>D</button></br>" . "\n";
+          $j = 0;
+        }
+          $disable = 'disabled';
       }
-      elseif ($j == 1) {
-        echo "<button type='button' class='btn btn-primary ". $disable . "' onclick = 'buttonFoo(" . $cont . ")'>B</button>" . "\n";
-        $j++;
+      else{
+        if ($j == 0){
+          echo "<button type='button' class='btn btn-primary $disable'>A</button>" . "\n";
+          $j++;
+        }
+        elseif ($j == 1) {
+          echo "<button type='button' class='btn btn-primary $disable'>B</button>" . "\n";
+          $j++;
+        }
+        elseif ($j == 2) {
+          echo "<button type='button' class='btn btn-primary $disable'>C</button>" . "\n";
+          $j++;
+        }
+        elseif ($j == 3) {
+          echo "<button type='button' class='btn btn-primary $disable'>D</button></br>" . "\n";
+          $j = 0;
+        }
       }
-      elseif ($j == 2) {
-        echo "<button type='button' class='btn btn-primary ". $disable . "' onclick = 'buttonFoo(" . $cont . ")'>C</button>" . "\n";
-        $j++;
-      }
-      elseif ($j == 3) {
-        echo "<button type='button' class='btn btn-primary ". $disable . "' onclick = 'buttonFoo(" . $cont . ")'>D</button></br>" . "\n";
-        $j = 0;
-      }
-      $disable = 'active';
+
+
     }
 
     ?>
   </div>
-</div>
-</div>
+<!-- <div>
+</div> -->
 
     <script>
 

@@ -50,6 +50,7 @@
         <th>Destino</th>
         <th>Asiento</th>
         <th>Numero de Boleto</th>
+        <th>TICKET</th>
       </tr>
     </thead>
     <tbody>
@@ -59,6 +60,7 @@
         <td>".$_SESSION['to']."</td>
         <td>".$_SESSION['data']."</td>
          <td>".$_SESSION['numero']."</td>
+         <td>".$_SESSION['ticket']."</td>
       </tr>
     </tbody>
   </table>
@@ -80,6 +82,7 @@
         <th>Destino</th>
         <th>Asiento</th>
         <th>Numero de Boleto</th>
+        <th>TICKET</th>
       </tr>
     </thead>
     <tbody>
@@ -89,6 +92,7 @@
         <td>".$_SESSION['to']."</td>
         <td>".$_SESSION['data']."</td>
         <td>".$_SESSION['numero']."</td>
+        <td>".$_SESSION['ticket']."</td>
       </tr>
     </tbody>
   </table>
@@ -110,6 +114,7 @@
         <th>Destino</th>
         <th>Asiento</th>
         <th>Numero de Boleto</th>
+        <th>TICKET</th>
       </tr>
     </thead>
     <tbody>
@@ -119,6 +124,7 @@
         <td>".$_SESSION['to']."</td>
         <td>".$_SESSION['data']."</td>
          <td>".$_SESSION['numero']."</td>
+         <td>".$_SESSION['ticket']."</td>
       </tr>
     </tbody>
   </table>
