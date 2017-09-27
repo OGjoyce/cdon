@@ -54,8 +54,8 @@ $to = $_GET['destino'];
 $date = $_GET['fecha'];
 $_SESSION['from'] = $from;
 $_SESSION['to'] = $to;
-//$_SESSION['date'] = $date;
-$_SESSION['date'] = str_replace("-", "", $date);
+$_SESSION['date'] = $date;
+//$_SESSION['date'] = str_replace("-", "", $date);
 //echo $_SESSION['date'];
 //$url = "http://192.168.1.66:8081/v1/aviones.xml?origen=". $from . "&destino=" . $to . "&fecha=" . $date;
 

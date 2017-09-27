@@ -31,11 +31,11 @@ session_start();
             header('Location: user.php');
         }
       }
-      //header('Location: Login.php');
+      header('Location: Login.html');
     }
     else{
       echo "Su usuario es incorrecto";
-      //header('Location: Login.php');
+      header('Location: Login.html');
     }
 
 
