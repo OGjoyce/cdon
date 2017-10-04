@@ -50,6 +50,7 @@ else if ($_SESSION['formato']  == 'json'){
 }
 $_SESSION['ticket'] = $load->numero;
 //--- si el asiento fue ocupado en el transcurso de la compra
+$asiento = $load->numero;
 if ($asiento == -1){
   echo "<div class='alert alert-danger'>
 <strong>ERROR</strong> El asiento no esta disponible,<form action='Asientos.php' method='get'> <button type='button' class='btn btn-default btn-sm' name='aerolinea' value=".$_SESSION['aerolinea']." onclick='foofi(\"".$_SESSION['aerolinea']."\",\"".$_SESSION['numero']."\")'>
